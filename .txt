@@ -1,0 +1,1 @@
+tensorflowjs_converter --input_format=keras digit_model.h5 src/digit_model 
