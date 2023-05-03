@@ -3,6 +3,7 @@ import { useState } from 'react'
 export default function Digit() {
   const [prediction, setPrediction] = useState(null)
   const [drawingData, setDrawingData]= useState(null)
+  const [isCanvasCleared, setIsCanvasCleared] = useState(false);
 
   const handleDraw = e => {
     const canvas = e.target
@@ -54,6 +55,14 @@ export default function Digit() {
     setPrediction(data.prediction)
   }
   
+  const handleClearCanvas = () => {
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    setDrawingData(null);
+    setPrediction(null);
+    setIsCanvasCleared(true);
+  };
 
   return (
     <main>
@@ -62,6 +71,7 @@ export default function Digit() {
       <canvas id="canvas" width="280" height="280" style={{ border: '1px solid black' }} onMouseDown={handleDraw}></canvas>
       <div className="btn">
         <button onClick={handlePrediction}>Computer Prediction</button>
+        <button onClick={handleClearCanvas}>Clear Canvas</button>
       </div>
       
 
