@@ -60,8 +60,10 @@ export default function Digit() {
       <h1>Digits Model</h1>
 
       <canvas id="canvas" width="280" height="280" style={{ border: '1px solid black' }} onMouseDown={handleDraw}></canvas>
-
-      <button onClick={handlePrediction}>Computer Prediction</button>
+      <div className="btn">
+        <button onClick={handlePrediction}>Computer Prediction</button>
+      </div>
+      
 
       {prediction && <p>the prediction digit is {prediction}</p>}
 
